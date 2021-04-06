@@ -67,7 +67,7 @@ namespace Песочница
             }*/
 
             //Разница между List и Array
-            {
+            /*{
                 //Initialization
                 List<int> myIntsList = new List<int>();
                 int[] myIntsArray = new int[10];
@@ -109,6 +109,24 @@ namespace Песочница
                 {
                     Console.WriteLine("myIntsList[" + i + "]= " + myIntsList[i]);
                 }
+            }*/
+
+            // Lambda expressions
+            {
+                var numbers = new List<int> { 1, 2, 3, 4, 5, 6, 7, 8, 9 };
+                Func<int, int> square =  x => x* x;
+                Console.WriteLine(square(4));
+                Func<int, bool> nechet = i => i%2!=0;
+                var Odd = numbers.Where(nechet).ToList();
+                Action<int> printOdd = x =>
+                {
+                    var cube = x * x * x;
+                    var square = x * x;
+                    Console.WriteLine($"X: {x} square: {square} cube: {cube}");
+                };
+                //Odd.ForEach(x => Console.WriteLine(x); 
+                Odd.ForEach(printOdd);
+                //Console.WriteLine(numbers.Where(nechet).ToList());
             }
         }
     }
